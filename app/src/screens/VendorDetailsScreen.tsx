@@ -5,6 +5,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Vendor, MenuItem } from '../types/vendor';
 import { styles } from '../styles/styles';
 import { API_BASE_URL } from '../config/api';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 type VendorsStackParamList = {
   VendorsList: undefined;
@@ -74,12 +75,8 @@ const VendorDetailsScreen: React.FC<VendorDetailsScreenProps> = ({ route }) => {
   };
 
   if (loading) {
-    return (
-      <View style={styles.centeredContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
-      </View>
-    );
-  }
+    return <LoadingIndicator message="Loading Favorites..." />;
+  } 
 
   if (error || !vendor) {
     return (

@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { Text, View, FlatList } from 'react-native';
+import { Text, View, FlatList, ActivityIndicator } from 'react-native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { useFocusEffect } from '@react-navigation/native';
 import { useVendorFetch } from '../hooks/useVendorFetch';
 import VendorCard from '../components/VendorCard';
 import { styles } from '../styles/styles';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 type FavoritesStackParamList = {
   FavoritesList: undefined;
@@ -32,12 +33,8 @@ const FavoritesScreen: React.FC<FavoritesScreenProps> = ({ navigation }) => {
   };
 
   if (loading) {
-    return (
-      <View style={styles.centeredContainer}>
-        <Text style={{ fontSize: 18 }}>Loading Favorites...</Text>
-      </View>
-    );
-  }
+    return <LoadingIndicator message="Loading Favorites..." />;
+  } 
 
   return (
     <View style={{ flex: 1 }}>

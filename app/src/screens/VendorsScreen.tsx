@@ -5,6 +5,7 @@ import { useVendorFetch } from '../hooks/useVendorFetch';
 import { useSearch } from '../hooks/useSearch';
 import VendorCard from '../components/VendorCard';
 import { styles } from '../styles/styles';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 type VendorsStackParamList = {
   VendorsList: undefined;
@@ -60,12 +61,7 @@ const VendorsScreen: React.FC<VendorsListScreenProps> = ({ navigation }) => {
   const displayVendors = searchQuery.trim() ? results : vendors;
 
   if (loading && !searchQuery) {
-    return (
-      <View style={styles.centeredContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
-        <Text style={{ fontSize: 18, marginTop: 12 }}>Loading Vendors...</Text>
-      </View>
-    );
+    return <LoadingIndicator message="Loading Vendors..."/>;
   }
 
   const renderFooter = () => {

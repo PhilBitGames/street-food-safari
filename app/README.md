@@ -10,9 +10,13 @@ I wanted this project to be modular and scalable, so I prioritized seperating re
 
 Additions:
 - The assignment didn't mention implementing the Favorites screen but I decided to anyway.
-- All screens have an animated loading symbol when fetching data.
+- All screens have a loading feature when fetching data.
 
 Potential improvements: 
 - Make styling easier to manage and utilize. Implement a set colour scheme for greater consistency. Group style components depending on where they are used.
 - Fix search bar bug where it loses focus from typing.
 - Seperate more overlapping functionality between VendorScreen and Favorites screen.
+- Filter System
+- Sorting options
+- A better vendor image display
+- Cut back on refetching information, maybe some kind of caching.

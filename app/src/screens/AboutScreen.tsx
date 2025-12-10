@@ -3,6 +3,7 @@ import { Text, View, ActivityIndicator, TouchableOpacity, ScrollView } from 'rea
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { styles } from '../styles/styles';
 import { API_BASE_URL } from '../config/api';
+import LoadingIndicator from '../components/LoadingIndicator';
 
 type RootTabParamList = {
   VendorsStack: undefined;
@@ -61,15 +62,8 @@ const AboutScreen: React.FC<AboutScreenProps> = () => {
   };
 
   if (loading) {
-    return (
-      <View style={styles.centeredContainer}>
-        <ActivityIndicator size="large" color="#007AFF" />
-        <Text style={{ fontSize: 16, marginTop: 16, color: '#6B7280' }}>
-          Loading...
-        </Text>
-      </View>
-    );
-  }
+    return <LoadingIndicator message="Loading About..."/>;
+  } 
 
   if (error) {
     return (
