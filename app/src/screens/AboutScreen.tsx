@@ -115,8 +115,4 @@ const AboutScreen: React.FC<AboutScreenProps> = () => {
   );
 };
 
-const aboutStyles = {
-
-};
-
 export default AboutScreen;
